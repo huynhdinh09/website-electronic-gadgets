@@ -6,22 +6,18 @@
             extract($_SESSION['user']);
         ?>
             <div class="row1 mb10 ">
-                Xin Chào<br>
+                <h3>Xin chào</h3><i class="fas fa-user"></i>
                 <?= $user ?>
             </div>
-            <div class="row1 mb10 ">
+            <div class="row1 mb10 lienket">
+                <li><a href="index.php?act=mybill">Đơn hàng của tôi</a></li>
                 <li><a href="index.php?act=quenmk">Quên mật khẩu</a></li>
 
                 <li>
                     <a href="index.php?act=edit_taikhoan">Cập nhật tài khoản</a>
                 </li>
-                <?php
-                if ($role == 1) {
-                ?>
-                    <li>
-                        <a href="admin/index.php">Đăng nhập Admin</a>
-                    </li>
-                <?php } ?>
+                
+                
                 <li>
                     <a href="index.php?act=thoat">Thoát</a>
                 </li>
@@ -68,12 +64,6 @@
                 echo '<li><a href="' . $linkdm . '">' . $name . '</a></li>';
             }
             ?>
-            <!-- <li><a href="#">Đồng hồ</a></li>
-                    <li><a href="#">Laptop</a></li>
-                    <li><a href="#">Điện thoại</a></li>
-                    <li><a href="#">Ba lô</a></li>
-                    <li><a href="#">Ba lô</a></li>
-                    <li><a href="#">Ba lô</a></li> -->
         </ul>
     </div>
     <div class="boxfooter searchbox">
@@ -88,7 +78,7 @@
     <div class="boxcontent row1">
 
         <!-- <?php
-        $linksp = "index.php?act=sanphamct&idsp=" . $id1;
+        $linksp = "index.php?act=sanphamct&idsp=" . $idsp;
         ?> -->
         <div class="row1 mb10 top10">
             <a href="index.php?act=sanphamct&idsp=15"><img src="view/img/ip14pro.webp" alt=""></a>

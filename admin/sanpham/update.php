@@ -31,7 +31,7 @@ if (is_file($hinhpath)) {
             </div>
             <div class="row1 mb10">
                 <h5 style="font-weight: bold;">Tên sản phẩm:</h5>
-                <input type="text" name="tensp" value="<?= $name1 ?>">
+                <input type="text" name="tensp" value="<?= $namesp ?>">
             </div>
             <div class="row1 mb10">
                 <h5 style="font-weight: bold;">Giá sản phẩm:</h5>
@@ -47,7 +47,7 @@ if (is_file($hinhpath)) {
                 <textarea name="mota" cols="30" rows="10"><?= $mota ?></textarea>
             </div>
             <div class="row1 mb10">
-                <input type="hidden" name="id" value="<?= $id1 ?>">
+                <input type="hidden" name="id" value="<?= $idsp ?>">
                 <input type="submit" name="capnhat" value="Cập nhật">
                 <input type="reset" value="Nhập lại">
                 <a href="index.php?act=listsp"><input type="button" value="Danh sách"></a>

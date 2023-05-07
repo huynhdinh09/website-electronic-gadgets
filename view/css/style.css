@@ -3,15 +3,23 @@
     font-family: sans-serif;
     font-size: 0.9vw;
 }
+/* body{
+    height: 100%;
+    margin: 0;
+}
+html{
+    height: 100%;
+} */
 
 .boxcenter {
-    width: 60%;
+    width: 80%;
     margin: 0 auto;
 }
 
 .row1 {
     float: left;
     width: 100%;
+    display: block;
 }
 
 .mb {
@@ -63,6 +71,10 @@
     float: left;
 }
 
+.icongiohang {
+    width: 24%;
+    float: left;
+}
 .footer {
     background-color: rgb(206, 0, 83);
     
@@ -73,9 +85,9 @@
 }
 
 .boxtitle {
-    color: #333;
+    color: #ffffff;
     padding: 10px;
-    background-color: #eee;
+    background-color: #840030;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     border: 1px #CCC solid;
@@ -94,6 +106,18 @@
     padding: 20px;
 
 }
+
+.boxthanhtoan {
+    border-left: 1px #CCC solid;
+    border-right: 1px #CCC solid;
+    border-bottom: 1px #CCC solid;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    min-height: 50px;
+    padding: 20px;
+
+}
+
 .billform {
     border-left: 1px #CCC solid;
     border-right: 1px #CCC solid;
@@ -318,7 +342,7 @@
 }
 
 .headerADMIN {
-    background-color: #EEE;
+    background-color: #840030;
     border: 1px #CCC solid;
     color: #666;
     border-radius: 5px;
@@ -328,13 +352,13 @@
 
 }
 .p1 {
-    color: black;
+    color: rgb(255, 255, 255);
     /* font-weight: bold; */
     font-size: 20pt;
   }
   
   .p2 {
-    color: rgb(193, 193, 12);
+    color: rgb(255, 255, 0);
     font-weight: bold;
     font-size: 20pt;
   }
@@ -376,7 +400,8 @@
 .frmdsloai table th {
 
     padding: 20px;
-    background-color: #CCC;
+    background-color: #840030;
+    color: white;
 }
 
 /* .frmdsloai table th:nth-child(1){
@@ -452,4 +477,22 @@
   .tk li{
     list-style: none;
     margin-left: 3px;
+  }
+  li{
+    list-style: none;
+  }
+  .thongtindonhang{
+    font-size: 20px;
+  }
+  .themvaogiohang{
+    color: black;
+    background: repeating-linear-gradient(45deg, #ffc107, transparent 100px);
+    border: #e9ecef;
+  }
+  .lienket a{
+    text-decoration: none;
+  }
+
+  .fas{
+    font-size: 20px;
   }

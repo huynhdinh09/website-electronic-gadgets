@@ -4,12 +4,13 @@
             <?php
             extract($onesp);
             ?>
-            <div class="boxtitle"><?= $name1 ?></div>
+            <div class="boxtitle"><?= $namesp ?></div>
             <div class="boxcontent row1">
                 <?php
 
                 $img = $img_path . $img;
                 echo '<div class="row1 mb spct"><img src="' . $img . '" ></div>';
+              
                 echo $mota;
 
                 ?>
@@ -19,7 +20,7 @@
         <script>
             $(document).ready(function() {
                 $("#binhluan").load("view/binhluan/binhluanform.php", {
-                    idpro: <?= $id1 ?>
+                    idpro: <?= $idsp ?>
                 });
             });
         </script>
@@ -30,18 +31,37 @@
         <div class="row1 mb">
             <div class="boxtitle">Sản Phẩm Cùng Loại</div>
             <div class="boxcontent row1">
-                <?php
-                foreach ($sp_cungloai as $sp_cungloai) {
-                    extract($sp_cungloai);
-                    $linksp = "index.php?act=sanphamct&idsp=" . $id1;
-                    $hinh=$img_path.$img;
-                    echo '<div class="boxsp mr">
-                    <div class="row1 img"><a href="' . $linksp . '"><img src="' . $hinh . '" alt=""></a></div>
-                    <p>' . $price . ' Triệu VNĐ</p>
-                    <a href="' . $linksp . '">' . $name1 . '</a>
-                </div>';
-                }
+            <?php
+                    $i=0;
+                    foreach ($sp_cungloai as $sp_cungloai) {
+                        extract($sp_cungloai);
+                        $linksp="index.php?act=sanphamct&idsp=".$idsp;
+                        $hinh=$img_path.$img;
+                        if(($i==2)||($i==5)||($i==8)||($i=11)){
+                            $mr="";
+                        }else{
+                            $mr="mr";
+                        }
+                        echo '<div class="boxsp ' . $mr  . '">
+                        <div class="row1 img"><a href="' . $linksp . '"><img src="' . $hinh . '" alt=""></a></div>
+                        <p>' . $price . ' Triệu VNĐ</p>
+                        
+                        <div class="row1 btnviewcart ">
+                            <form action="index.php?act=addtocart" method="post">
+                                <input type="hidden" name="id" value="' . $idsp . '" >
+                                <input type="hidden" name="name" value="' . $namesp . '" >
+                                <input type="hidden" name="img" value="' . $img . '" >
+                                <input type="hidden" name="price" value="' . $price . '" >
+                                
+                                <input class="themvaogiohang" type="submit" name="addtocart" value="Thêm vào giỏ hàng">
+                            </form>
+                        </div>
+                        <a href="' . $linksp . '">' . $namesp . '</a>
+                        </div>';
+                    $i += 1;
+                    }
                 ?>
+                 
             </div>
         </div>
     </div>

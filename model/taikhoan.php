@@ -23,6 +23,14 @@ function checkemail($email)
     return $sp;
 }
 
+function checkrole($role)
+{
+    $sql = "select * from taikhoan where role='" . $role."' ";
+    $kq = pdo_query_one($sql);
+    return $kq;
+}
+
+
 function   update_taikhoan($iduser,$user,$pass,$email,$address,$tel)
 {      
         $sql = "update taikhoan set user='" . $user . "',pass='" . $pass . "',email='" . $email . "',address='" . $address . "',tel='" . $tel . "' where iduser=" . $iduser;
@@ -32,4 +40,3 @@ function delete_taikhoan($iduser){
     $sql="delete from taikhoan where iduser=".$iduser;
     pdo_execute($sql);
 }
-?>

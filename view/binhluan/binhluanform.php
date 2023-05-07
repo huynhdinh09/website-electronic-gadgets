@@ -6,20 +6,6 @@ $idpro = $_REQUEST['idpro'];//mảng kết hợp get post cookie
 $dsbl = loadall_binhluan($idpro);
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/style.css">
-</head>
-
-<body>
-
-
     <div class="row1 mb ">
         <div class="boxtitle bg-dark text-white text-center">Bình Luận</div>
         <div class="binhluan boxcontent2 ">
@@ -39,7 +25,7 @@ $dsbl = loadall_binhluan($idpro);
         <div class="boxfooter binhluanform">
             <form action="<?= $_SERVER['PHP_SELF']; ?>" method="post">
                 <input type="hidden" name="idpro" value="<?= $idpro ?>">
-                <textarea name="noidung" cols="88" rows="10"></textarea>
+                <textarea name="noidung" cols="119" rows="5"></textarea>
                 <!-- <input class="" type="text" name="noidung"> -->
                 <input type="submit" class="btn btn-primary" name="guibinhluan" value="Gửi bình luận">
             </form>
@@ -56,6 +42,5 @@ $dsbl = loadall_binhluan($idpro);
         }
         ?>
     </div>
-</body>
 
-</html>
+

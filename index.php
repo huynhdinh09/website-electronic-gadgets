@@ -1,9 +1,11 @@
 <?php
     session_start();
+
     include "model/pdo.php";
     include "model/danhmuc.php";
     include "model/sanpham.php";
     include "model/taikhoan.php";
+    include "model/cart.php";
     include "view/header.php";
     include "global.php";
 
@@ -85,6 +87,7 @@
                     $iduser=$_POST['iduser'];
                     
                     update_taikhoan($iduser,$user,$pass,$email,$address,$tel);
+                    $thongbao="Đã cập nhật thành công.";
                     $_SESSION['user']=checkuser($user,$pass); 
                     header('Location: index.php?act=edit_taikhoan');
                 }       
@@ -105,9 +108,72 @@
             case 'thoat':
                 session_unset();
                 header('Location: index.php');
-    
                 break;
-    
+
+            case 'addtocart':
+                if(isset($_POST['addtocart'])&&($_POST['addtocart'])){
+                    $id = $_POST['id'];
+                    $name = $_POST['name'];
+                    $img = $_POST['img'];
+                    $price = $_POST['price'];
+                    $soluong=1;
+                    $ttien=$soluong* $price;
+                    $spadd=[$id,$name,$img,$price,$soluong,$ttien];
+                    array_push($_SESSION['mycart'],$spadd);
+                }
+                include "view/cart/viewcart.php";
+                break;
+                
+                
+            case 'delcart':
+                if(isset($_GET['idcart'])){
+                    array_splice($_SESSION['mycart'],$_GET['idcart'],1);
+                }else{
+                    $_SESSION['mycart']=[];
+                }
+                header('Location: index.php?act=viewcart');
+                break;
+
+            case 'bill':
+                include "view/cart/bill.php";
+                break;
+        
+            case 'viewcart':
+                include "view/cart/viewcart.php";
+                break;
+            
+            case 'billcomfirm':
+                //tạo bill
+                if(isset($_POST['dongydathang'])&&($_POST['dongydathang'])){
+                    if(isset($_SESSION['user'])) $iduser=$_SESSION['user']['iduser'];
+                    else $iduser=0;
+                    $name=$_POST['user'];
+                    $email=$_POST['email'];
+                    $address=$_POST['address'];
+                    $tel=$_POST['tel'];
+                    $pttt=$_POST['bill_pttt'];
+                    $ngaydathang=date('h:i:sa d/m/Y');
+                    $tongdonhang=tongdonhang();
+
+                    $idbill=insert_bill($iduser,$name,$email,$address,$tel,$pttt,$ngaydathang,$tongdonhang);
+
+                    //insert into cart:$session['mycart'] & idbill
+                    foreach($_SESSION['mycart'] as $cart){
+                        insert_cart($_SESSION['user']['iduser'],$cart[0],$cart[2],$cart[1],$cart[3],$cart[4],$cart[5],$idbill);
+                    }
+                    // xóa session
+                    $_SESSION['cart'] = [];
+                }
+                $bill=loadone_bill($idbill);
+                $billct=loadall_cart($idbill);
+                include "view/cart/billcomfirm.php";
+                break;
+
+            case 'mybill':
+                $listbill=loadall_bill($kyw="",$_SESSION['user']['iduser']);
+                include "view/cart/mybill.php";
+                break;
+
             case 'gioithieu':
                 include "view/gioithieu.php";
                 break;

@@ -34,26 +34,29 @@
             </ul> -->
             <nav class="navbar navbar-expand-lg " style="background-color: rgb(42, 59, 173);">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="index.php" style="font-size: 13pt;color:white ;">Trang chủ</a>
+                    <a class="navbar-brand" href="index.php?act=home" style="font-size: 13pt;color:white ;">TRANG CHỦ</a>
                     <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-bars"></i>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
+                    <div class="collapse navbar-collapse " id="navbarNav">
                         <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="index.php?act=listdm" style="font-size: 13pt;color:white ;">Danh Mục</a>
+                            <li class="nav-item ">
+                                <a type="button" class="nav-link active " aria-current="page" href="index.php?act=listdm" style="font-size: 13pt;color:white ;">DANH MỤC</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" href="index.php?act=listsp" style="font-size: 13pt;color:white ;">Sản phẩm</a>
+                                <a class="nav-link active" href="index.php?act=listsp" style="font-size: 13pt;color:white ;">SẢN PHẨM</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" href="index.php?act=dskh" style="font-size: 13pt;color:white ;">Thành viên</a>
+                                <a class="nav-link active" href="index.php?act=dskh" style="font-size: 13pt;color:white ;">THÀNH VIÊN</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" href="index.php?act=dsbl" style="font-size: 13pt;color:white ;">Bình luận</a>
+                                <a class="nav-link active" href="index.php?act=dsbl" style="font-size: 13pt;color:white ;">BÌNH LUẬN</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" href="../index.php" style="font-size: 13pt;color:white ;">Siêu thị điện tử</a>
+                                <a class="nav-link active" href="index.php?act=listbill" style="font-size: 13pt;color:white ;">DANH SÁCH ĐƠN HÀNG</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="../index.php" style="font-size: 13pt;color:white ;">SIÊU THỊ ĐIỆN TỬ</a>
                             </li>
                         </ul>
                     </div>

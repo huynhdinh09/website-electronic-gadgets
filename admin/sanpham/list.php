@@ -33,8 +33,8 @@
                 <?php
                 foreach ($listsanpham as $sanpham) {
                     extract($sanpham);
-                    $suasp = "index.php?act=suasp&id=" . $id1;
-                    $xoasp = "index.php?act=xoasp&id=" . $id1;
+                    $suasp = "index.php?act=suasp&id=" . $idsp;
+                    $xoasp = "index.php?act=xoasp&id=" . $idsp;
                     $hinhpath = "../upload/" . $img;
                     if (is_file($hinhpath)) {
                         $hinh = "<img src='" . $hinhpath . "' height='80'>";
@@ -43,8 +43,8 @@
                     }
                     echo '<tr>
                        
-                        <td>' . $id1 . '</td>
-                        <td>' . $name1 . '</td>
+                        <td>' . $idsp . '</td>
+                        <td>' . $namesp . '</td>
                         <td>' . $hinh . '</td>
                         <td>' . $price . '</td>
                     
